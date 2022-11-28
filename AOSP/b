@@ -1,0 +1,38 @@
+#!/bin/bash
+
+cd android
+
+rm ../sdm660_64/abl.elf
+rm ../sdm660_64/boot.img
+rm ../sdm660_64/dtbo.img
+rm ../sdm660_64/mdtp.img
+rm ../sdm660_64/metadata.img
+rm ../sdm660_64/persist.img
+rm ../sdm660_64/recovery.img
+rm ../sdm660_64/userdata.img
+rm ../sdm660_64/obj/KERNEL_OBJ/vmlinux
+rm ../sdm660_64/vendor/firmware/a512_zap.elf
+rm ../sdm660_64/super.img
+rm ../sdm660_64/vbmeta.img
+rm ../sdm660_64/vbmeta_system.img
+
+source build/envsetup.sh
+# m clean
+lunch sdm660_64-userdebug
+./build.sh dist -j6
+
+mv -f out/target/product/sdm660_64/abl.elf ../sdm660_64/abl.elf
+mv -f out/target/product/sdm660_64/boot.img ../sdm660_64/boot.img
+mv -f out/target/product/sdm660_64/dtbo.img ../sdm660_64/dtbo.img
+mv -f out/target/product/sdm660_64/mdtp.img ../sdm660_64/mdtp.img
+mv -f out/target/product/sdm660_64/metadata.img ../sdm660_64/metadata.img
+mv -f out/target/product/sdm660_64/persist.img ../sdm660_64/persist.img
+mv -f out/target/product/sdm660_64/recovery.img ../sdm660_64/recovery.img
+mv -f out/target/product/sdm660_64/userdata.img ../sdm660_64/userdata.img
+mv -f out/target/product/sdm660_64/obj/KERNEL_OBJ/vmlinux ../sdm660_64/obj/KERNEL_OBJ/vmlinux
+mv -f out/target/product/sdm660_64/vendor/firmware/a512_zap.elf ../sdm660_64/vendor/firmware/a512_zap.elf
+mv -f out/dist/super.img ../sdm660_64/super.img
+
+unzip -p out/dist/sdm660_64-img-eng.android.zip vbmeta.img > ../sdm660_64/vbmeta.img
+unzip -p out/dist/sdm660_64-img-eng.android.zip vbmeta_system.img > ../sdm660_64/vbmeta_system.img
+

@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="NavControlLibrary.MQTT.MQTTControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NavControlLibrary.MQTT"
+             xmlns:global="clr-namespace:NavControlLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <global:BoolVisibilityConverter x:Key="BoolVisibilityConverter"></global:BoolVisibilityConverter>
+        <global:InvBoolVisibilityConverter x:Key="InvBoolVisibilityConverter"></global:InvBoolVisibilityConverter>
+    </UserControl.Resources>
+    <Grid>
+        <GroupBox Header="Сервер MQTT" Margin="2" VerticalAlignment="Top">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0">Сервер:</TextBlock>
+                    <TextBox Grid.Column="1" Text="{Binding Server}"></TextBox>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0">:</TextBlock>
+                    <TextBox Grid.Column="3" Text="{Binding Port}"></TextBox>
+                    <CheckBox IsChecked="{Binding SSL}" Grid.Column="4" Margin="2,0" VerticalAlignment="Center">SSL</CheckBox>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,2,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,1">Логин:</TextBlock>
+                    <TextBox Grid.Column="1" Text="{Binding Login}"></TextBox>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,2,0">Пароль:</TextBlock>
+                    <TextBox Grid.Column="3" Text="{Binding Password}"></TextBox>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,2,0">TID:</TextBlock>
+                    <TextBox Grid.Column="5" Text="{Binding TID}"></TextBox>
+                </Grid>
+                <Button Grid.Column="1" Margin="5,0,0,0" Grid.RowSpan="2" Click="Button_Click">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Старт" Visibility="{Binding IsRun, Converter={StaticResource InvBoolVisibilityConverter}}"/>
+                        <TextBlock Text="Стоп" Grid.Row="1"  Visibility="{Binding IsRun, Converter={StaticResource BoolVisibilityConverter}}"/>
+                    </Grid>
+
+                </Button>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</UserControl>

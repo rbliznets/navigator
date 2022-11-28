@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="NavControlLibrary.Map.ArrowBus"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NavControlLibrary.Map"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="30" RenderTransformOrigin="0,0">
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <!--<ScaleTransform ScaleY="{Binding SpeedScale}" CenterX="15" CenterY="15"/>-->
+            <SkewTransform/>
+            <RotateTransform x:Name="Bearing" Angle="{Binding Bearing}" CenterX="15" CenterY="15"/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <Grid>
+        <Polygon Points="8,30 8,0, 22,0 22,30" Stroke="Black" Fill="White" Opacity="0.5" />
+        <Line X1="15" Y1="2" X2="15" Y2="28" StrokeThickness="1" Stroke="#FFD85C9A" />
+        <Line X1="13" Y1="15" X2="17" Y2="15" StrokeThickness="1" Stroke="#FFD85C9A" />
+        <Polygon Points="10,12 15,2, 20,12" Stroke="#FFD85C9A" Fill="#FFD85C9A" />
+    </Grid>
+</UserControl>

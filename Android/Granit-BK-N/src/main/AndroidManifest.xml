@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="internalOnly">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="ExtraText">
+        <activity
+            android:name=".MainActivity"
+            android:exported = "true"
+            android:screenOrientation="userLandscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+<!--                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"/>-->
+            </intent-filter>
+<!--            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/usb_device_filter" />-->
+        </activity>
+        <activity
+            android:name=".video.VideoFullscreenActivity"
+            android:theme="@style/Theme.ServiceManager.NoActionBar"
+            android:launchMode="singleTask"
+            android:exported = "false"
+            android:taskAffinity="cover.container">
+        </activity>
+
+        <service
+            android:name="ru.glorient.bkn.EGTSService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+        <service
+            android:name="ru.glorient.bkn.MQTTService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="ru.glorient.bkn.STM32Service"
+            android:enabled="true"
+            android:exported="false" >
+<!--            </intent-filter>-->
+<!--            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/usb_device_filter" />-->
+        </service>
+        <service
+            android:name="ru.glorient.bkn.InformerService"
+            android:enabled="true"
+            android:exported="false" />
+
+<!--        <receiver android:name="ru.glorient.granitbk_n.accessory.BootCompletedReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:exported = "true"-->
+<!--            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+<!--                <category android:name="android.intent.category.DEFAULT"/>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+    </application>
+
+</manifest>

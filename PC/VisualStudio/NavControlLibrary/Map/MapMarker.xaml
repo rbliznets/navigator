@@ -1,0 +1,22 @@
+﻿<UserControl x:Name="userControl" x:Class="NavControlLibrary.Map.MapMarker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NavControlLibrary.Map"
+             xmlns:lib="clr-namespace:NavControlLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="50" MinWidth="5" MinHeight="5">
+    <UserControl.Resources>
+        <local:AddHalfDoubleConverter x:Key="AddHalfDoubleConverter"/>
+        <local:HalfDoubleConverter x:Key="HalfDoubleConverter"/>
+        <lib:GreaterDoubleConverter x:Key="GreaterDoubleConverter"/>
+        <lib:LessDoubleConverter x:Key="LessDoubleConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Ellipse Visibility="{Binding Width, Converter={StaticResource GreaterDoubleConverter}, ConverterParameter=10, ElementName=userControl}" x:Name="Circle" Stroke="Black" StrokeThickness="2" Opacity="0.7"></Ellipse>
+        <Ellipse Visibility="{Binding Width, Converter={StaticResource LessDoubleConverter}, ConverterParameter=10, ElementName=userControl}" Stroke="Red" Fill="Red" ></Ellipse>
+        <Line x:Name="line1" Visibility="{Binding Width, Converter={StaticResource GreaterDoubleConverter}, ConverterParameter=10, ElementName=userControl}" Stroke="Blue" X1="{Binding Height, Converter={StaticResource AddHalfDoubleConverter}, ConverterParameter=-5, ElementName=userControl}" Y1="{Binding Y2, ElementName=line1}" X2="{Binding Height, Converter={StaticResource AddHalfDoubleConverter}, ConverterParameter=5, ElementName=userControl}" Y2="{Binding Width, Converter={StaticResource HalfDoubleConverter}, ElementName=userControl}" StrokeThickness="1"></Line>
+        <Line x:Name="line2" Visibility="{Binding Width, Converter={StaticResource GreaterDoubleConverter}, ConverterParameter=10, ElementName=userControl}" Stroke="Blue" X1="{Binding X2, ElementName=line2}" Y1="{Binding Width, Converter={StaticResource AddHalfDoubleConverter}, ConverterParameter=-5, ElementName=userControl}" X2="{Binding Height, Converter={StaticResource HalfDoubleConverter}, ElementName=userControl}" Y2="{Binding Width, Converter={StaticResource AddHalfDoubleConverter}, ConverterParameter=5, ElementName=userControl}" StrokeThickness="1"></Line>
+    </Grid>
+</UserControl>

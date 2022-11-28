@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="ScriptEditor.Views.GPSTriggerPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:map="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+             xmlns:lib="clr-namespace:NavControlLibrary;assembly=NavControlLibrary"
+              xmlns:local="clr-namespace:ScriptEditor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/NavControlLibrary;component/Res.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <lib:BoolVisibilityConverter x:Key="BoolVisibilityConverter"></lib:BoolVisibilityConverter>
+            <lib:InvBoolVisibilityConverter x:Key="InvBoolVisibilityConverter"></lib:InvBoolVisibilityConverter>
+            <lib:NullVisibilityConverter x:Key="NullVisibilityConverter"></lib:NullVisibilityConverter>
+            <lib:InvNullVisibilityConverter x:Key="InvNullVisibilityConverter"></lib:InvNullVisibilityConverter>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding SelectedScript.GPSTrigger, RelativeSource={RelativeSource AncestorType=UserControl}}" DataContextChanged="Grid_DataContextChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Margin="2,2,2,2">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="Point_Center" ToolTip="Преместить в центр карты">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M11,2V4.07C7.38,4.53 4.53,7.38 4.07,11H2V13H4.07C4.53,16.62 7.38,19.47 11,19.93V22H13V19.93C16.62,19.47 19.47,16.62 19.93,13H22V11H19.93C19.47,7.38 16.62,4.53 13,4.07V2M11,6.08V8H13V6.09C15.5,6.5 17.5,8.5 17.92,11H16V13H17.91C17.5,15.5 15.5,17.5 13,17.92V16H11V17.91C8.5,17.5 6.5,15.5 6.08,13H8V11H6.09C6.5,8.5 8.5,6.5 11,6.08M12,11A1,1 0 0,0 11,12A1,1 0 0,0 12,13A1,1 0 0,0 13,12A1,1 0 0,0 12,11Z" />
+                        </Canvas>
+                    </Button>
+                    <TextBlock Margin="4,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Координаты</TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid Margin="2,2,2,2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,0,2,0" HorizontalAlignment="Center" VerticalAlignment="Center">Широта:</TextBlock>
+                <TextBox Text="{Binding TextLatitude, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" Margin="0,0,10,0" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></TextBox>
+                <TextBlock Margin="0,0,2,0" HorizontalAlignment="Center" Grid.Column="2" VerticalAlignment="Center">Долгота:</TextBlock>
+                <TextBox Text="{Binding TextLongitude, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="2,2,2,2" Grid.Row="1">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="Radius_Clear"  ToolTip="Значения по умолчанию">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
+                        </Canvas>
+                    </Button>
+                    <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Условия срабатывания триггера</TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid Margin="2,2,2,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Margin="0,0,0,2">
+                    <TextBlock Text="{Binding Prior, StringFormat={}Расстояние срабатывания до точки {0:#} м}" Visibility="{Binding IsPrior, Converter={StaticResource BoolVisibilityConverter}}" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Cрабатывание до точки выключено" Visibility="{Binding IsPrior, Converter={StaticResource InvBoolVisibilityConverter}}" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <TextBlock Grid.Row="1" Text="{Binding Minimum, ElementName=slider1, StringFormat={}{0:#} м}"/>
+                <Slider x:Name="slider1" Margin="2,2,2,2" Maximum="150" Minimum="{Binding Radius}" LargeChange="10" SmallChange="0" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Prior}" AutoToolTipPlacement="None" Grid.Row="1" Grid.Column="1" />
+                <TextBlock Grid.Row="1" Text="{Binding Maximum, ElementName=slider1, StringFormat={}{0:#} м}" Grid.Column="2"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="0,0,0,2">
+                    <TextBlock Text="{Binding Radius, StringFormat={}Радиус срабатывания в точке {0:#} м}" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <TextBlock Grid.Row="3" Text="{Binding Minimum, ElementName=slider2, StringFormat={}{0:#} м}"/>
+                <Slider x:Name="slider2" Margin="2,2,2,2" Maximum="100" Minimum="20" LargeChange="10" SmallChange="0" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Radius}" AutoToolTipPlacement="None" Grid.Row="3" Grid.Column="1" />
+                <TextBlock Grid.Row="3" Text="{Binding Maximum, ElementName=slider2, StringFormat={}{0:#} м}" Grid.Column="2"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center" Grid.ColumnSpan="3" Margin="0,0,0,10" Visibility="Collapsed">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0">Задержка срабатывания:</TextBlock>
+                    <Button Click="Delay_Dec">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M20 14H4V10H20V14Z" />
+                        </Canvas>
+                    </Button>
+                    <TextBox Text="{Binding TextDelay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" MinWidth="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MouseWheel="Delay_Wheel"></TextBox>
+                    <Button Click="Delay_Inc">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                        </Canvas>
+                    </Button>
+                    <Button Click="Delay_Clear">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
+                        </Canvas>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="0,0,0,2">
+                    <TextBlock Text="{Binding Post, StringFormat={}Расстояние срабатывания после точки {0:#} м}" Visibility="{Binding IsPost, Converter={StaticResource BoolVisibilityConverter}}" HorizontalAlignment="Center"></TextBlock>
+                    <TextBlock Text="Cрабатывание после точки выключено" Visibility="{Binding IsPost, Converter={StaticResource InvBoolVisibilityConverter}}" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <TextBlock Grid.Row="6" Text="{Binding Minimum, ElementName=slider3, StringFormat={}{0:#} м}" />
+                <Slider x:Name="slider3" Margin="2,2,2,2" Maximum="150" Minimum="{Binding Radius}" LargeChange="10" SmallChange="0" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Post}" AutoToolTipPlacement="None" Grid.Row="6" Grid.Column="1" />
+                <TextBlock Grid.Row="6" Text="{Binding Maximum, ElementName=slider3, StringFormat={}{0:#} м}" Grid.Column="2"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="2,2,2,2" Grid.Row="2">
+            <GroupBox.Header>
+                <CheckBox IsChecked="{Binding IsBearing}">Курс</CheckBox>
+            </GroupBox.Header>
+            <Grid Margin="2,2,2,2" Visibility="{Binding IsBearing, Converter={StaticResource BoolVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">
+                    <TextBlock Text="{Binding Bearing, StringFormat={}Направление движения {0:0}°}" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <TextBlock Grid.Row="1" Text="{Binding Minimum, ElementName=slider4, StringFormat={}{0:0}°}"/>
+                <Slider x:Name="slider4" Margin="2,2,2,2" Maximum="359" Minimum="0" LargeChange="10" SmallChange="0" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Bearing}" AutoToolTipPlacement="None" Grid.Row="1" Grid.Column="1" />
+                <TextBlock Grid.Row="1" Text="{Binding Maximum, ElementName=slider4, StringFormat={}{0:0}°}" Grid.Column="2"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="3" Margin="0,2,0,0">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleButton x:Name="toggleButton" IsChecked="{Binding IsMapUnlock, Mode=TwoWay}" Click="toggleButton_Click">
+                        <ToggleButton.ToolTip>
+                            <StackPanel>
+                                <!--<TextBlock Visibility="{Binding ElementName=toggleButton, Path=IsChecked, Converter={StaticResource InvBoolVisibilityConverter}}">
+                                    Разрешить установку маркера
+                                </TextBlock>-->
+                                <TextBlock >
+                                    Запретить установку маркера
+                                </TextBlock>
+                            </StackPanel>
+                        </ToggleButton.ToolTip>
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"  Data="M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M18,20V10H6V20H18M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V10C4,8.89 4.89,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" Visibility="{Binding IsChecked, Converter={StaticResource InvBoolVisibilityConverter}, ElementName=toggleButton}"  />
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"  Data="M10 13C11.1 13 12 13.89 12 15C12 16.11 11.11 17 10 17S8 16.11 8 15 8.9 13 10 13M18 1C15.24 1 13 3.24 13 6V8H4C2.9 8 2 8.9 2 10V20C2 21.1 2.9 22 4 22H16C17.1 22 18 21.1 18 20V10C18 8.9 17.1 8 16 8H15V6C15 4.34 16.34 3 18 3S21 4.34 21 6V8H23V6C23 3.24 20.76 1 18 1M16 10V20H4V10H16Z" Visibility="{Binding IsChecked, Converter={StaticResource BoolVisibilityConverter}, ElementName=toggleButton}"  />
+                        </Canvas>
+
+                    </ToggleButton>
+                    <TextBlock VerticalAlignment="Center" Margin="2,0,0,0">Карта</TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <map:GMapControl x:Name="StopMap" MaxZoom="20" MapProvider="{Binding MapProvider, RelativeSource={RelativeSource AncestorType=UserControl}}" MouseLeftButtonDown="StopMap_MouseLeftButtonDown"/>
+        </GroupBox>
+    </Grid>
+</UserControl>

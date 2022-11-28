@@ -1,0 +1,8 @@
+type init-myservice, domain;
+permissive init-myservice;
+type init-myservice_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(init-myservice)
+
+allow init-myservice vendor_shell_exec:file {rx_file_perms read open getattr map};
+allow init-myservice vendor_toolbox_exec:file rx_file_perms;

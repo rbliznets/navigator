@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>globalKey.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="pic\1492030504_56.png" />
+    <None Remove="pic\1492030523_system-error-alt-02.png" />
+    <None Remove="pic\1492030616_arrow-right-alt.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CronExpressionDescriptor" Version="2.18.0" />
+    <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
+    <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
+    <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
+    <PackageReference Include="MQTTnet" Version="3.1.2" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.2" />
+    <PackageReference Include="Quartz" Version="3.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="pic\1492030504_56.png" />
+    <Resource Include="pic\1492030523_system-error-alt-02.png" />
+    <Resource Include="pic\1492030616_arrow-right-alt.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Map\MapArrow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Map\MapDot.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Map\MapMarker.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
+</Project>

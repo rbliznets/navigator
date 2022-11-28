@@ -1,0 +1,198 @@
+﻿<Window xmlns:Map="clr-namespace:NavControlLibrary.Map;assembly=NavControlLibrary"  
+        xmlns:NavControlLibrary="clr-namespace:NavControlLibrary;assembly=NavControlLibrary"  
+        xmlns:MQTT="clr-namespace:NavControlLibrary.MQTT;assembly=NavControlLibrary"  x:Class="MQTTLog.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MQTTLog"
+        xmlns:lib="clr-namespace:NavControlLibrary;assembly=NavControlLibrary"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <lib:BoolVisibilityConverter x:Key="BoolVisibilityConverter"></lib:BoolVisibilityConverter>
+        <lib:InvBoolVisibilityConverter x:Key="InvBoolVisibilityConverter"></lib:InvBoolVisibilityConverter>
+        <lib:InverseConverter x:Key="InverseConverter"></lib:InverseConverter>
+    </Window.Resources>
+    <Grid Margin="0,0,0,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <MQTT:MQTTControl x:Name="mqttControl" />
+        <TabControl x:Name="Tabs" Grid.Row="1" TabStripPlacement="Bottom" Margin="2,2,2,2">
+            <TabItem Header="Логи">
+                <Grid >
+                    <NavControlLibrary:TraceControl x:Name="allLog"/>
+                 </Grid>
+            </TabItem>
+            <TabItem Header="Карта">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Margin="2,2,2,2" BorderBrush="Black" Padding="1,1,1,1" BorderThickness="1,1,1,1">
+                            <TextBlock Text="{Binding Display1}" HorizontalAlignment="Center"></TextBlock>
+                        </Border>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Margin="2,2,2,2" BorderBrush="Black" Padding="1,1,1,1" BorderThickness="1,1,1,1">
+                                <TextBlock Text="{Binding Display3}" HorizontalAlignment="Center"></TextBlock>
+                            </Border>
+                            <Border Margin="2,2,2,2" BorderBrush="Black" Padding="1,1,1,1" BorderThickness="1,1,1,1" Grid.Column="1">
+                                <TextBlock Text="{Binding Display2}" HorizontalAlignment="Center"></TextBlock>
+                            </Border>
+                            <Border Margin="2,2,2,2" BorderBrush="Black" Padding="1,1,1,1" BorderThickness="1,1,1,1" Grid.Column="2">
+                                <TextBlock Text="{Binding Display4}" HorizontalAlignment="Center"></TextBlock>
+                            </Border>
+
+                        </Grid>
+                        <ListBox ItemsSource="{Binding Stations}" IsEnabled="False" SelectedIndex="{Binding StationIndex}" Grid.Row="2">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" ToolTip="{Binding}">
+                                        <TextBlock Text="{Binding name}" HorizontalAlignment="Center" Margin="5,0,0,0" TextTrimming="WordEllipsis"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                    <Map:MapControl x:Name="Map" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="MQTT">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid IsEnabled="{Binding  MQTTModel.Online}" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding MQTTConnection}"></TextBlock>
+                        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,2,2,2" Padding="2,2,2,2" Click="Button_Click" Grid.Column="1">
+                            <TextBlock>Stop</TextBlock>
+                        </Button>
+                    </Grid>
+                    <NavControlLibrary:TraceControl x:Name="mqttLog" Grid.Row="1" />
+                    <StackPanel IsEnabled="{Binding MQTTModel.Online}" MinWidth="100" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1">
+                        <NavControlLibrary:GPSSetting onSend="MqttGPS" />
+                        <GroupBox Header="Логирование">
+                            <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center">
+                                <Button Margin="2,0,2,0" Click="Button_Click_4">Включить</Button>
+                                <Button Margin="2,0,2,0" Click="Button_Click_5">Выключить</Button>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Informer">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid IsEnabled="{Binding MQTTModel.Online}" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="{Binding InformerFile}" IsEnabled="{Binding IsInformerRun, Converter={StaticResource InverseConverter}}"></TextBox>
+                        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,2,2,2" Padding="2,2,2,2" Grid.Column="1" Click="Button_Click_1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Старт" Visibility="{Binding IsInformerRun, Converter={StaticResource InvBoolVisibilityConverter}}"/>
+                                <TextBlock Text="Стоп" Grid.Row="1"  Visibility="{Binding IsInformerRun, Converter={StaticResource BoolVisibilityConverter}}"/>
+                            </Grid>
+                        </Button>
+                    </Grid>
+                    <NavControlLibrary:TraceControl x:Name="informerLog" Grid.Row="1" />
+                    <StackPanel IsEnabled="{Binding MQTTModel.Online}" MinWidth="100" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1">
+                        <NavControlLibrary:GPSSetting  IsEnabled="{Binding IsInformerRun}" onSend="InformerGPS" />
+                        <GroupBox Header="Загрузить маршрут">
+                            <StackPanel Orientation="Vertical" Margin="2">
+                                <TextBlock Text="Адрес архива:"/>
+                                <TextBox Text="{Binding RouteZip}"></TextBox>
+                                <TextBlock Text="Маршрут для запуска после загрузки:"/>
+                                <TextBox Text="{Binding StartFile}"></TextBox>
+                                <TextBlock Text="Первая команда после запуска:"/>
+                                <TextBox Text="{Binding StartPayload}"></TextBox>
+                                <Button Margin="0,2,0,0" Click="Button_RouteUpload">Upload</Button>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Напраление движения">
+                            <StackPanel Orientation="Horizontal" IsEnabled="{Binding IsInformerRun}" Margin="2" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding InformerDirrection}" VerticalAlignment="Center"></TextBlock>
+                                <Button Margin="2,0,2,0" Click="GetLists">Get</Button>
+                                <Button Margin="2,0,2,0" Click="Button_Click_2">Forward</Button>
+                                <Button Click="Button_Click_3">Backward</Button>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Скрипты" MaxWidth="400">
+                            <ItemsControl ItemsSource="{Binding Scripts}" IsEnabled="{Binding IsInformerRun}" Margin="2">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Margin="2" Tag="{Binding tag_id}" Click="Button_Click_6" Padding="2,2,2,2" MinWidth="60">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding name}" Visibility="{Binding menu,Converter={StaticResource InvBoolVisibilityConverter}}"></TextBlock>
+                                                <TextBlock Text="{Binding name}" Visibility="{Binding menu,Converter={StaticResource BoolVisibilityConverter}}" Foreground="#FFF10C0C"></TextBlock>
+                                            </StackPanel>
+                                        </Button> 
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </GroupBox>
+                        <GroupBox Header="Остановки" MaxWidth="400">
+                            <ItemsControl ItemsSource="{Binding Stations}" IsEnabled="{Binding IsInformerRun}" Margin="2">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Margin="2" Tag="{Binding id}" Click="Button_Click_6" Padding="2,2,2,2" MinWidth="60">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding name}" Visibility="{Binding enable,Converter={StaticResource InvBoolVisibilityConverter}}"></TextBlock>
+                                                <TextBlock Text="{Binding name}" Visibility="{Binding enable,Converter={StaticResource BoolVisibilityConverter}}" Foreground="#FFF10C0C"></TextBlock>
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </GroupBox>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:gauge="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="Здесь будет приборная панель"-->
+    <!--        android:textSize="20sp" />-->
+
+<!--    <ru.glorient.granitbk_n.accessory.GaugeView-->
+<!--        android:id="@+id/speedometer"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/guideline12"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline11"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline14"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        gauge:rangeColors="@array/speedColors"-->
+<!--        gauge:rangeValues="@array/speedometer"-->
+<!--        gauge:scaleEndValue="200"-->
+<!--        gauge:showInnerRim="false"-->
+<!--        gauge:showOuterBorder="true"-->
+<!--        gauge:showOuterRim="false"-->
+<!--        gauge:showOuterShadow="false" />-->
+
+    <com.sccomponents.gauges.gr008.GR008
+        android:id="@+id/speedometer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="parent"
+        app:sccAnimDuration="6"
+        app:sccEnableTouch="true"
+        app:sccFontName="@string/app_name"
+        app:sccInverted="false"
+        app:sccLabelsSizeAdjust="1"
+        app:sccMajorTicks="20"
+        app:sccMaxValue="200"
+        app:sccMinValue="0"
+        app:sccMinorTicks="2"
+        app:sccShowContour="true"
+        app:sccShowLabels="true"
+        app:sccText="км/ч" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|top"
+        android:text="Спидометр"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/speedometer"
+        app:layout_constraintTop_toBottomOf="@+id/speedometer"
+        app:layout_constraintVertical_bias="0.0" />
+
+<!--    <ru.glorient.granitbk_n.accessory.GaugeView-->
+<!--        android:id="@+id/ranges"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/speedometer"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline11"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/guideline17"-->
+<!--        gauge:rangeColors="@array/rangeColors"-->
+<!--        gauge:rangeValues="@array/ranges"-->
+<!--        gauge:showInnerRim="false"-->
+<!--        gauge:showOuterBorder="true"-->
+<!--        gauge:showOuterRim="false"-->
+<!--        gauge:showOuterShadow="false" />-->
+
+    <com.sccomponents.gauges.gr008.GR008
+        android:id="@+id/ranges"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toTopOf="@+id/guideline17"
+        app:layout_constraintVertical_bias="0.62"
+        app:sccAnimDuration="6"
+        app:sccEnableTouch="true"
+        app:sccFontName="@string/app_name"
+        app:sccInverted="false"
+        app:sccLabelsSizeAdjust="1"
+        app:sccMajorTicks="10"
+        app:sccMaxValue="100"
+        app:sccMinValue="0"
+        app:sccMinorTicks="2"
+        app:sccShowContour="true"
+        app:sccShowLabels="true"
+        app:sccText="литры" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|top"
+        android:text="Датчик топлива"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/speedometer" />
+
+<!--    <ru.glorient.granitbk_n.accessory.GaugeView-->
+<!--        android:id="@+id/tachometer"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline14"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/guideline17"-->
+<!--        gauge:layout_constraintBottom_toBottomOf="@+id/speedometer"-->
+<!--        gauge:layout_constraintStart_toEndOf="@+id/ranges"-->
+<!--        gauge:rangeColors="@array/tachometerColors"-->
+<!--        gauge:rangeValues="@array/tachometer"-->
+<!--        gauge:scaleEndValue="8"-->
+<!--        gauge:showInnerRim="false"-->
+<!--        gauge:showOuterBorder="true"-->
+<!--        gauge:showOuterRim="false"-->
+<!--        gauge:showOuterShadow="false" />-->
+
+    <com.sccomponents.gauges.gr008.GR008
+        android:id="@+id/tachometer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline17"
+        app:layout_constraintVertical_bias="0.62"
+        app:sccAnimDuration="6"
+        app:sccEnableTouch="true"
+        app:sccInverted="false"
+        app:sccLabelsSizeAdjust="1"
+        app:sccMajorTicks="1"
+        app:sccMaxValue="8"
+        app:sccMinValue="0"
+        app:sccMinorTicks="0.25"
+        app:sccShowLabels="true"
+        app:sccText="х1000rpm" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|top"
+        android:text="Тахометр"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tachometer" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75949365" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

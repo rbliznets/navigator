@@ -1,0 +1,570 @@
+[
+    {
+        "id": "829da4bd.85d868",
+        "type": "tab",
+        "label": "Telegram",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "48dab0ef.6351",
+        "type": "tab",
+        "label": "BD",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "88ff6ff9.e2b25",
+        "type": "mqtt-broker",
+        "name": "local",
+        "broker": "localhost",
+        "port": "1884",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "4f82e56a.f78d1c",
+        "type": "telegram bot",
+        "botname": "testbus_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "8896188.6a6cae8",
+        "type": "Stackhero-MySQL-Server",
+        "name": "mqtt db",
+        "host": "localhost",
+        "port": "3306",
+        "tls": false,
+        "database": "mqtt"
+    },
+    {
+        "id": "b80c471d.5bdc88",
+        "type": "mqtt in",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "topic": "navigator/+/status",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "88ff6ff9.e2b25",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "37f4616f.382e7e"
+            ]
+        ]
+    },
+    {
+        "id": "872e46fd.12d498",
+        "type": "telegram sender",
+        "z": "829da4bd.85d868",
+        "d": true,
+        "name": "",
+        "bot": "4f82e56a.f78d1c",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 930,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9549296.83757",
+        "type": "function",
+        "z": "829da4bd.85d868",
+        "name": "online buses ",
+        "func": "var list=flow.get(\"buses\")||[];\nvar sid=msg.topic.substring(0,msg.topic.lastIndexOf(\"/\"))\nsid=sid.substring(sid.lastIndexOf(\"/\")+1)\nvar id = parseInt(sid,10)\n\nvar ms = {payload:parseInt(id,10)}\nvar tel = { \n                payload: \n                {\n                    chatId:339146247,\n                    type:\"message\",\n                    content:\"Автобус \"+sid+\" \"+msg.payload.client\n                }\n            }\nif(msg.payload.client == \"online\")\n{\n    if(!list.includes(id))list.push(id);\n}\nelse\n{\n    list=list.filter(function(value, index, arr){ \n        return value != id;\n    });\n}\nflow.set(\"buses\",list)\nreturn tel;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 710,
+        "y": 80,
+        "wires": [
+            [
+                "872e46fd.12d498"
+            ]
+        ]
+    },
+    {
+        "id": "e4d00253.f19f",
+        "type": "json",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "e9549296.83757"
+            ]
+        ]
+    },
+    {
+        "id": "37f4616f.382e7e",
+        "type": "switch",
+        "z": "829da4bd.85d868",
+        "name": "is blank",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "818f8c2c.5a525"
+            ],
+            [
+                "e4d00253.f19f"
+            ]
+        ]
+    },
+    {
+        "id": "818f8c2c.5a525",
+        "type": "change",
+        "z": "829da4bd.85d868",
+        "name": "offline",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.client",
+                "pt": "msg",
+                "to": "offline",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 60,
+        "wires": [
+            [
+                "e9549296.83757"
+            ]
+        ]
+    },
+    {
+        "id": "f4252c9c.b0a6c",
+        "type": "telegram command",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "command": "/q",
+        "bot": "4f82e56a.f78d1c",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "bf795a7f.1ac2d8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5d0660b6.05b54",
+        "type": "function",
+        "z": "829da4bd.85d868",
+        "name": "/q help",
+        "func": "msg.payload.type = 'message';\nmsg.payload.content = 'Формат вопроса должен быть следующим: Вопрос[Ответ1,Ответ2,...]';\nmsg.payload.options = {reply_to_message_id : msg.payload.messageId}\n\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 450,
+        "y": 360,
+        "wires": [
+            [
+                "199c37cc.ce8aa8"
+            ]
+        ]
+    },
+    {
+        "id": "bf795a7f.1ac2d8",
+        "type": "switch",
+        "z": "829da4bd.85d868",
+        "name": "is blank",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "5d0660b6.05b54"
+            ],
+            [
+                "de2797ee.2227b8"
+            ]
+        ]
+    },
+    {
+        "id": "199c37cc.ce8aa8",
+        "type": "telegram sender",
+        "z": "829da4bd.85d868",
+        "name": "send help",
+        "bot": "4f82e56a.f78d1c",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de2797ee.2227b8",
+        "type": "function",
+        "z": "829da4bd.85d868",
+        "name": "questions",
+        "func": "var list=flow.get(\"buses\")||[];\nif(list.length == 0) return;\nvar mp=flow.get(\"questions\")||new Map();\nvar q=msg.payload.content\nvar answers=[]\nvar res=[]\nvar i=q.indexOf(\"[\")\nif(i>0)\n{\n   var a = q.substring(i+1);\n   q=q.substring(0,i);\n   a = a.substring(0,a.indexOf(\"]\"));\n   i=a.indexOf(\",\");\n   while(i>=0)\n   {\n      answers.push(a.substring(0,i).trim());\n      a = a.substring(i+1);\n      i=a.indexOf(\",\");\n    }\n    answers.push(a.trim());\n}\nq=q.trim()\nvar ms={\n    query:\n    {\n        text:q,\n        answers:[]\n    }\n}\n\nmp.set(q,msg.payload.chatId);\nflow.set(\"questions\",mp);\n\nfor(index in answers)\n{\n    var x={\n        text:answers[index],\n        topic:\"queries\"\n    }\n    ms.query.answers.push(x);\n}\n\nfor(index in list)\n{\n    var mitm={\n        payload:ms,\n        topic:\"navigator/\"+list[index]+\"/cmd\"\n    }\n    res.push(mitm);\n}\n\nreturn [res];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "f7a1413c.aa731"
+            ]
+        ]
+    },
+    {
+        "id": "f7a1413c.aa731",
+        "type": "mqtt out",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "topic": "",
+        "qos": "1",
+        "retain": "",
+        "broker": "88ff6ff9.e2b25",
+        "x": 630,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5523e0a8.7f639",
+        "type": "mqtt in",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "topic": "queries/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "88ff6ff9.e2b25",
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "ce695a02.cb5f98"
+            ]
+        ]
+    },
+    {
+        "id": "d625727e.23b25",
+        "type": "function",
+        "z": "829da4bd.85d868",
+        "name": "answer",
+        "func": "var mp=flow.get(\"questions\")||new Map();\nif(mp.length == 0) return;\n\nvar i=msg.topic.indexOf(\"/\")\nvar topic =msg.topic.substring(i+1);\ni=topic.indexOf(\"/\");\nvar q=topic.substring(0,i);\nvar bus=topic.substring(i+1);\n\nvar tel = { \n                payload: \n                {\n                    chatId:mp.get(q),\n                    type:\"message\",\n                    content:\"Автобус \"+bus+\" на вопрос '\"+q+\"' ответил '\"+msg.payload.answer+\"'\"\n                }\n            }\n// mp.delete(q);\n// flow.set(\"questions\",mp);\n\nreturn tel;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "18e58d0f.dc6883"
+            ]
+        ]
+    },
+    {
+        "id": "ce695a02.cb5f98",
+        "type": "json",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "d625727e.23b25"
+            ]
+        ]
+    },
+    {
+        "id": "18e58d0f.dc6883",
+        "type": "telegram sender",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "bot": "4f82e56a.f78d1c",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41a8ee32.e8ca4",
+        "type": "telegram command",
+        "z": "829da4bd.85d868",
+        "name": "",
+        "command": "/l",
+        "bot": "4f82e56a.f78d1c",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "76dd2c6.18080d4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "76dd2c6.18080d4",
+        "type": "function",
+        "z": "829da4bd.85d868",
+        "name": "list",
+        "func": "var list=flow.get(\"buses\")||[];\n\nmsg.payload.type = 'message';\nmsg.payload.content = 'Автобусы: ';\nmsg.payload.options = {reply_to_message_id : msg.payload.messageId}\n\nif(list.length == 0)\n{\n    msg.payload.content = msg.payload.content+\"нет\";\n}\nelse\n{\n    for(var index in list)\n    {\n        if(index != 0)msg.payload.content = msg.payload.content+\", \";\n        msg.payload.content = msg.payload.content+list[index];\n    }\n}\n\nreturn [msg];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "563827f5.8829e8"
+            ]
+        ]
+    },
+    {
+        "id": "563827f5.8829e8",
+        "type": "telegram sender",
+        "z": "829da4bd.85d868",
+        "name": "send list",
+        "bot": "4f82e56a.f78d1c",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d19539c2.bfd558",
+        "type": "mqtt in",
+        "z": "48dab0ef.6351",
+        "name": "",
+        "topic": "navigator/+/GPS",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "88ff6ff9.e2b25",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "918fa3c0.ec54d"
+            ]
+        ]
+    },
+    {
+        "id": "41e7beb0.7832f",
+        "type": "Stackhero-MySQL",
+        "z": "48dab0ef.6351",
+        "server": "8896188.6a6cae8",
+        "name": "add record",
+        "x": 910,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89137a09.954288",
+        "type": "function",
+        "z": "48dab0ef.6351",
+        "name": "prepare data",
+        "func": "var sid=msg.topic.substring(0,msg.topic.lastIndexOf(\"/\"))\nsid=sid.substring(sid.lastIndexOf(\"/\")+1)\nvar id = parseInt(sid,10)\n\nvar record = { \n                payload: \n                {\n                    tid:id,\n                    accuracy:null,\n                    speed:0.0,\n                    speedAccuracy:null,\n                    bearingAccuracy:null,\n                    altitude:null,\n                    altitudeAccuracy:null,\n                    fifo:0\n                }\n            }\n\nvar dt = new Date(msg.payload.time);\nvar time = dt.getFullYear()+\"-\";\nif(dt.getMonth()>8)time+=(dt.getMonth()+1)+\"-\";\nelse time+=\"0\"+(dt.getMonth()+1)+\"-\";\nif(dt.getDate()>9)time+=dt.getDate()+\" \";\nelse time+=\"0\"+dt.getDate()+\" \";\nif(dt.getHours()>9)time+=dt.getHours()+\":\";\nelse time+=\"0\"+dt.getHours()+\":\";\nif(dt.getMinutes()>9)time+=dt.getMinutes()+\":\";\nelse time+=\"0\"+dt.getMinutes()+\":\";\nif(dt.getSeconds()>9)time+=dt.getSeconds();\nelse time+=\"0\"+dt.getSeconds();\nrecord.payload.time = time;\n\nrecord.payload.latitude = msg.payload.position.latitude;\nrecord.payload.longitude = msg.payload.position.longitude;\nif('accuracy' in  msg.payload.position) \n{\n    record.payload.accuracy = msg.payload.position.accuracy;\n}\nif('speed' in  msg.payload)\n{\n    record.payload.speed = msg.payload.speed.value;\n    if('accuracy' in  msg.payload.speed) \n    {\n        record.payload.speedAccuracy = msg.payload.speed.accuracy;\n    }\n}\nrecord.payload.bearing = msg.payload.bearing.value;\nif('accuracy' in  msg.payload.bearing) \n{\n    record.payload.bearingAccuracy = msg.payload.bearing.accuracy;\n}\nif('altitude' in  msg.payload)\n{\n    record.payload.altitude = msg.payload.altitude.value;\n    if('accuracy' in  msg.payload.altitude) \n    {\n        record.payload.altitudeAccuracy = msg.payload.altitude.accuracy;\n    }\n}\nif('fifo' in  msg.payload)\n{\n    record.payload.fifo = 1;\n}\n\nvar record2 = { \n                payload: \n                {\n                    tid:record.payload.tid,\n                    latitude:record.payload.latitude,\n                    longitude:record.payload.longitude,\n                    bearing:record.payload.bearing\n                }\n            }\n\nreturn [record,record2];\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "dc5c998.2a2d468"
+            ],
+            [
+                "ba6e322.b5b5dd"
+            ]
+        ]
+    },
+    {
+        "id": "dc5c998.2a2d468",
+        "type": "change",
+        "z": "48dab0ef.6351",
+        "name": "insert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "INSERT INTO `mqtt`.`location` (`tid`, `time`, `latitude`, `longitude`, `accuracy`, `speed`, `speedAccuracy`, `bearing`, `bearingAccuracy`, `altitude`, `altitudeAccuracy`, `fifo`) VALUES (:tid, :time, :latitude, :longitude, :accuracy, :speed, :speedAccuracy, :bearing, :bearingAccuracy, :altitude, :altitudeAccuracy, :fifo);",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 140,
+        "wires": [
+            [
+                "41e7beb0.7832f"
+            ]
+        ]
+    },
+    {
+        "id": "918fa3c0.ec54d",
+        "type": "json",
+        "z": "48dab0ef.6351",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "89137a09.954288"
+            ]
+        ]
+    },
+    {
+        "id": "7d3cb4c5.fa5e5c",
+        "type": "comment",
+        "z": "48dab0ef.6351",
+        "name": "Добавляем GPS запись в БД",
+        "info": "",
+        "x": 800,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ba6e322.b5b5dd",
+        "type": "json",
+        "z": "48dab0ef.6351",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "3e4d4547.27838a"
+            ]
+        ]
+    },
+    {
+        "id": "3e4d4547.27838a",
+        "type": "mqtt out",
+        "z": "48dab0ef.6351",
+        "name": "map",
+        "topic": "navigator/map",
+        "qos": "0",
+        "retain": "",
+        "broker": "88ff6ff9.e2b25",
+        "x": 910,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6f1eb05e.d3bce",
+        "type": "comment",
+        "z": "48dab0ef.6351",
+        "name": "Публикуем урезанный GPS для отображения всех автобусов на карте",
+        "info": "",
+        "x": 800,
+        "y": 280,
+        "wires": []
+    }
+]

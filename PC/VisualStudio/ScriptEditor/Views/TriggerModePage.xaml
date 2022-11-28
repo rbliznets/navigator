@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="ScriptEditor.Views.TriggerModePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lib="clr-namespace:NavControlLibrary;assembly=NavControlLibrary"
+             xmlns:model="clr-namespace:NavControlLibrary.Models;assembly=NavControlLibrary"
+             xmlns:local="clr-namespace:ScriptEditor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/NavControlLibrary;component/Res.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <model:EnumDescriptionConverter x:Key="EnumDescriptionConverter"></model:EnumDescriptionConverter>
+            <lib:BoolVisibilityConverter x:Key="BoolVisibilityConverter"></lib:BoolVisibilityConverter>
+            <lib:InvBoolVisibilityConverter x:Key="InvBoolVisibilityConverter"></lib:InvBoolVisibilityConverter>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Правила вытеснения">
+            <StackPanel Margin="2,2,2,2">
+                <StackPanel Orientation="Horizontal" Margin="2,2,2,2">
+                    <TextBlock Margin="0,0,2,0" HorizontalAlignment="Center" VerticalAlignment="Center">Приоритетет:</TextBlock>
+                    <Button Click="Priority_Down" ToolTip="Уменьшить">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M20 14H4V10H20V14Z" />
+                        </Canvas>
+                    </Button>
+                    <TextBox Text="{Binding TextPriority, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" MinWidth="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MouseWheel="Priority_Wheel"></TextBox>
+                    <Button Click="Priority_Up" ToolTip="Увеличить">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                        </Canvas>
+                    </Button>
+                    <Button Click="Priority_Clear" ToolTip="Значение по умолчанию">
+                        <Canvas Width="24" Height="24">
+                            <Canvas.LayoutTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5" />
+                            </Canvas.LayoutTransform>
+                            <Path Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Data="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
+                        </Canvas>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="2,2,2,2">
+                    <TextBlock Margin="0,0,2,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">Правило вытеснения скрипта:</TextBlock>
+                    <ComboBox ItemsSource="{Binding PriorityRuleList}" SelectedItem="{Binding Rule}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <CheckBox  Margin="2,2,2,2" IsChecked="{Binding Wait}">Следующий скрипт с таким же приоритетом не вытеснит этот скрипт</CheckBox>
+                <CheckBox  Margin="2,2,2,2" IsChecked="{Binding Self}">Cкрипт вытесняет сам себя</CheckBox>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Триггеры срабатывания" Grid.Row="1">
+            <StackPanel Margin="2,2,2,2">
+                <StackPanel Orientation="Horizontal"  Visibility="{Binding IsNonStop, Converter={StaticResource BoolVisibilityConverter}}">
+                    <CheckBox IsChecked="{Binding HandleTrigger}" Margin="2,2,2,2">Разрешить внешнюю активацию</CheckBox>
+                    <CheckBox IsChecked="{Binding IsMenu}" IsEnabled="{Binding HandleTrigger}" Margin="2,2,2,2">Активация из GUI</CheckBox>
+                </StackPanel>
+                <CheckBox IsChecked="{Binding IsGPSTrigger}" Margin="2,2,2,2">Разрешить активацию по местоположению</CheckBox>
+                <CheckBox IsChecked="{Binding IsTimerTrigger}" Margin="2,2,2,2"  Visibility="{Binding IsNonStop, Converter={StaticResource BoolVisibilityConverter}}">Разрешить активацию по времени</CheckBox>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Специальные триггеры" Grid.Row="2" Visibility="{Binding IsNonStop, Converter={StaticResource BoolVisibilityConverter}}">
+            <StackPanel Margin="2,2,2,2">
+                <CheckBox IsChecked="{Binding ChangedirTrigger}" Margin="2,2,2,2">Срабатывание при изменении вектора движения</CheckBox>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

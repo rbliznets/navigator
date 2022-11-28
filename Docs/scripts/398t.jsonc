@@ -1,0 +1,2933 @@
+{
+  "version": 1,
+  "name": "Маршрут 398Т",
+  "type": "bidir",
+  "sequences": [
+    {
+      "id": 1,
+      "stop": {
+        "nextstop": 2,
+        "route": "forward"
+      },
+      "name": "Торговый центр",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30544,
+          "lat": 55.48592,
+          "radius": 20.0,
+          "prior": 24.747569034475514,
+          "post": 24.747569034475514,
+          "bearing": 259.5999333420623
+        }
+      },
+      "texts": [
+        {
+          "text": "Торговый центр",
+          "delay": 15,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка - Дом быта",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Nach.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Vnimatelno.wav",
+          "gps": "post"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Dom_byta.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "stop": {
+        "nextstop": 3,
+        "route": "forward"
+      },
+      "name": "Дом быта",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30416,
+          "lat": 55.48369,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 228.1915463451214
+        }
+      },
+      "texts": [
+        {
+          "text": "Дом быта",
+          "delay": 15,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Микрорайон Д",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Dom_byta.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Mkrn_D.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "stop": {
+        "nextstop": 4,
+        "route": "forward"
+      },
+      "name": "Микрорайон Д",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30103,
+          "lat": 55.48004,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 201.91105926604848
+        }
+      },
+      "texts": [
+        {
+          "text": "Микрорайон Д",
+          "delay": 15,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Рынок",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Mkrn_D.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Rinok.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "stop": {
+        "nextstop": 5,
+        "route": "forward"
+      },
+      "name": "остановка Рынок",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29936,
+          "lat": 55.47824,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 212.80784659151777
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Рынок",
+          "delay": 15,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка  Отдел соцзащиты",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Rinok.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Soc_zashita.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "stop": {
+        "nextstop": 6,
+        "route": "forward"
+      },
+      "name": "Отдел социальной защиты",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29666,
+          "lat": 55.47607,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 209.6029091428504
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Отдел социальной защиты",
+          "delay": 15,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Детская поликлиника",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Soc_zashita.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Dets_polik.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "stop": {
+        "nextstop": 7,
+        "route": "forward"
+      },
+      "name": "Детская поликлиника",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29471,
+          "lat": 55.47435,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 216.01278404018515
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Детская поликлиника",
+          "delay": 15,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка больница РАН ",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Dets_polik.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Bolnica_RAN.wav",
+          "gps": "post"
+        },
+        {
+          "file": "rekl1.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "stop": {
+        "nextstop": 8,
+        "route": "forward"
+      },
+      "name": "Больница РАН",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29269,
+          "lat": 55.47279,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 216.01278404018518
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Больница РАН, с кучей безруких хирургов",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Солнечная улица ",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Bolnica_RAN.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Ul_Solnechnaya.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "stop": {
+        "nextstop": 9,
+        "route": "forward"
+      },
+      "name": "Солнечная улица",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29127,
+          "lat": 55.46916,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 169.86168477937414
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка солнечная улица",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Троицкий храм",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Ul_Solnechnaya.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "troitskiy_hram.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "stop": {
+        "nextstop": 10,
+        "route": "forward"
+      },
+      "name": "Троицкий храм",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29202,
+          "lat": 55.46689,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 169.2206972896406
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Троицкий храм",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Троицкая роща",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "troitskiy_hram.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "troitskaya_rowa.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "stop": {
+        "nextstop": 11,
+        "route": "forward"
+      },
+      "name": "Троицкая роща",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29536,
+          "lat": 55.46639,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 40.38221185320972
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Троицкая роща",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Сиреневый бульвар",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "troitskaya_rowa.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Sireneviy_bulvar.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "stop": {
+        "nextstop": 12,
+        "route": "forward"
+      },
+      "name": "Сиреневый бульвар",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.2977,
+          "lat": 55.46788,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 44.22813679161065
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Сиреневый бульвар",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Поликлиника",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Sireneviy_bulvar.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "poliklinika.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "stop": {
+        "nextstop": 13,
+        "route": "forward"
+      },
+      "name": "Поликлиника",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30305,
+          "lat": 55.47144,
+          "radius": 20.0,
+          "prior": 25.0,
+          "post": 25.0,
+          "bearing": 39.74122436347621
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Поликлиника",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Центральная улица",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "poliklinika.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "centralnaya.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "stop": {
+        "nextstop": 14,
+        "route": "forward"
+      },
+      "name": "Улица центральная",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30879,
+          "lat": 55.47443,
+          "radius": 20.0,
+          "prior": 25.14836153232736,
+          "post": 25.14836153232736,
+          "bearing": 133.3253978645653
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка улица центральная",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Академгородок 40й километр",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "centralnaya.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "akademgorodok.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "stop": {
+        "nextstop": 15,
+        "route": "forward"
+      },
+      "name": "Академгородок 40й километр",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.31229,
+          "lat": 55.47383,
+          "radius": 20.252430965524486,
+          "prior": 29.599207502148154,
+          "post": 29.599207502148154,
+          "bearing": 41.023199342943165
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка улица Академгородок 40й километр",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Ватутинки-2",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "akademgorodok.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Izmiran.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "stop": {
+        "nextstop": 16,
+        "route": "forward"
+      },
+      "name": "ИЗМИРАН",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.31441,
+          "lat": 55.47527,
+          "radius": 24.85163846767266,
+          "prior": 30.341015163784956,
+          "post": 30.341015163784956,
+          "bearing": 37.81826189427573
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка ИЗМИРАН",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Ватутинки-2",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Izmiran.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "vatutinki2.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "stop": {
+        "nextstop": 17,
+        "route": "forward"
+      },
+      "name": "Ватутинки-2",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.33013,
+          "lat": 55.49174,
+          "prior": 30.044292099130235,
+          "post": 30.044292099130235,
+          "bearing": 23.716537120139023
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Ватутинки-2",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Ватутинки-1",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "vatutinki2.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "vatutinki1.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "stop": {
+        "nextstop": 18,
+        "route": "forward"
+      },
+      "name": "Ватутинки-1",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.33219,
+          "lat": 55.49525,
+          "radius": 30.10406943319712,
+          "prior": 35.0,
+          "post": 35.0,
+          "bearing": 17.30666222280415
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Ватутинки-1",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Школа",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "vatutinki1.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "shkola.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "stop": {
+        "nextstop": 19,
+        "route": "forward"
+      },
+      "name": "Школа",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.33443,
+          "lat": 55.50018,
+          "radius": 29.895930566802864,
+          "prior": 35.38530726291518,
+          "post": 35.38530726291518,
+          "bearing": 10.255799835735797
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Школа",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка 36й километр",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "shkola.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "36km.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "stop": {
+        "nextstop": 20,
+        "route": "forward"
+      },
+      "name": "36 километр",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.33673,
+          "lat": 55.50319,
+          "prior": 30.044292099130235,
+          "post": 30.044292099130235,
+          "bearing": 35.25431193534181
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка 36 километр",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка 35й километр",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "36km.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "35km.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "stop": {
+        "nextstop": 21,
+        "route": "forward"
+      },
+      "name": "35 километр",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.34888,
+          "lat": 55.50865,
+          "radius": 29.955707900869772,
+          "prior": 35.0,
+          "post": 35.0,
+          "bearing": 52.56097415814592
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка 35 километр",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Десна 2",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "35km.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Desna2.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "stop": {
+        "nextstop": 22,
+        "route": "forward"
+      },
+      "name": "Десна 2",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.38425448349258,
+          "lat": 55.52281657935963,
+          "radius": 29.747569034475504,
+          "prior": 34.940222665933085,
+          "post": 34.940222665933085,
+          "bearing": 32.690361976407836
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Десна 2",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Оздоровительный комплекс Десна",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Desna2.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "ozd_kompl_desna.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "stop": {
+        "nextstop": 23,
+        "route": "forward"
+      },
+      "name": "Оздоровительный комплекс десна",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.38943,
+          "lat": 55.52799,
+          "radius": 24.999999999999986,
+          "prior": 33.15988427800478,
+          "post": 33.15988427800478,
+          "bearing": 12.819749794669743
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Оздоровительный комплекс десна",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Ракитки",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "ozd_kompl_desna.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "rakitki.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "stop": {
+        "nextstop": 24,
+        "route": "forward"
+      },
+      "name": "Ракитки",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.39511,
+          "lat": 55.53737,
+          "radius": 27.96723064654719,
+          "prior": 35.088584198260456,
+          "post": 35.088584198260456,
+          "bearing": 41.66418683267664
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Ракитки",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка поворот на городище",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "rakitki.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "povorot_na_gorodiwe.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "stop": {
+        "nextstop": 25,
+        "route": "forward"
+      },
+      "name": "Поворот на городище",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.410733250978126,
+          "lat": 55.54394920250612,
+          "radius": 25.445084596982074,
+          "prior": 35.53366879524254,
+          "post": 35.53366879524254,
+          "bearing": 57.688874076013846
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Поворот на городище",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Котеджный посёлок",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "povorot_na_gorodiwe.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Kotedzniy_poselok.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "stop": {
+        "nextstop": 26,
+        "route": "forward"
+      },
+      "name": "Котеджный посёлок",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.432888297516875,
+          "lat": 55.550354278262105,
+          "radius": 30.341015163784938,
+          "prior": 38.20417637713501,
+          "post": 38.20417637713501,
+          "bearing": 49.35603670947853
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Котеджный посёлок",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Поворот на совхоз Воскресенское",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Kotedzniy_poselok.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "povorot_na_sovhoz_voskresenskoe.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "stop": {
+        "nextstop": 27,
+        "route": "forward"
+      },
+      "name": "Поворот на совхоз воскресенское",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.44026,
+          "lat": 55.55562,
+          "radius": 34.99999999999999,
+          "prior": 40.34101516378495,
+          "post": 40.34101516378495,
+          "bearing": 35.89529942507529
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Поворот на совхоз воскресенское",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Сосенки",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "povorot_na_sovhoz_voskresenskoe.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "sosenki.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "stop": {
+        "nextstop": 28,
+        "route": "forward"
+      },
+      "name": "Сосенки",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.44333818387461,
+          "lat": 55.5599751284867,
+          "radius": 39.539430168081246,
+          "prior": 45.02880686419355,
+          "post": 45.02880686419355,
+          "bearing": 23.075549630405547
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Сосенки",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Калужское шоссе",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "sosenki.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "kaluzshkoe_shosse.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "stop": {
+        "nextstop": 29,
+        "route": "forward"
+      },
+      "name": "Калужское шоссе",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.44649,
+          "lat": 55.56276,
+          "radius": 35.682030327569905,
+          "prior": 41.76485315299164,
+          "post": 41.76485315299164,
+          "bearing": 35.89529942507529
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Калужское шоссе",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка 24 км",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "sosenki.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "24km.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "stop": {
+        "nextstop": 30,
+        "route": "forward"
+      },
+      "name": "24 км",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.46161,
+          "lat": 55.57678,
+          "radius": 30.489376696112306,
+          "prior": 34.94022266593309,
+          "post": 34.94022266593309,
+          "bearing": 35.89529942507527
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка 24 км",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Мамыри",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "24km.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Mamiry.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "stop": {
+        "nextstop": 31,
+        "route": "forward"
+      },
+      "name": "Мамыри",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.48321,
+          "lat": 55.60006,
+          "radius": 34.34677653662366,
+          "prior": 39.68779170040861,
+          "post": 39.68779170040861,
+          "bearing": 18.46222518479724
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Мамыри",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Ашан",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Mamiry.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Ashan.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "stop": {
+        "nextstop": 32,
+        "route": "forward"
+      },
+      "name": "Ашан",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.48321,
+          "lat": 55.60006,
+          "radius": 35.97875339222462,
+          "prior": 41.023045491354836,
+          "post": 41.023045491354836
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка Ашан",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка МКАД",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Ashan.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "MKAD.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "stop": {
+        "nextstop": 33,
+        "route": "forward"
+      },
+      "name": "МКАД",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.49567,
+          "lat": 55.61285,
+          "radius": 30.341015163784945,
+          "prior": 34.940222665933085,
+          "post": 34.940222665933085,
+          "bearing": 51.27899917867895
+        }
+      },
+      "texts": [
+        {
+          "text": "остановка МКАД",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Метро теплый стан, конечная",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "MKAD.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Tepliy_stan.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "stop": {
+        "nextstop": 0,
+        "route": "forward"
+      },
+      "name": "Теплый стан",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.50204,
+          "lat": 55.61635
+        }
+      },
+      "texts": [
+        {
+          "text": "Метро теплый стан, конечная",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Просьба освободить салон автобуса.",
+          "delay": 15
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Tepliy_stan.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "konechnaya.wav"
+        },
+        {
+          "file": "Ne_zabivaite_vewi.wav"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "stop": {
+        "nextstop": 35,
+        "route": "backward"
+      },
+      "name": "Теплый стан",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.50933,
+          "lat": 55.61731,
+          "radius": 31.08282282542174,
+          "post": 37.91938249286674,
+          "bearing": 123.06959802882966
+        }
+      },
+      "texts": [
+        {
+          "text": "Метро теплый стан",
+          "delay": 10
+        },
+        {
+          "text": "Автобус следует по маршруту Метро Теплый стан - Торговый центр, Троицк..",
+          "delay": 15
+        }
+      ],
+      "audio": [
+        {
+          "file": "tepliy_stan_torg_center.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Ostanovka.wav"
+        },
+        {
+          "file": "Tepliy_stan.wav"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "MKAD.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "stop": {
+        "nextstop": 36,
+        "route": "backward"
+      },
+      "name": "МКАД",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.49612,
+          "lat": 55.61359,
+          "radius": 26.928699920255678,
+          "prior": 32.418076616367976,
+          "post": 32.418076616367976,
+          "bearing": 48.715049219745055
+        }
+      },
+      "texts": [
+        {
+          "text": "МКАД",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка - Ашан",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "MKAD.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "ashan.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "stop": {
+        "nextstop": 37,
+        "route": "backward"
+      },
+      "name": "АШАН",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.48469,
+          "lat": 55.60382,
+          "radius": 28.85739984051134,
+          "prior": 34.1984150042963,
+          "post": 34.1984150042963,
+          "bearing": 23.71653712013901
+        }
+      },
+      "texts": [
+        {
+          "text": "АШАН",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка - 24км",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Ashan.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "24km.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "stop": {
+        "nextstop": 38,
+        "route": "backward"
+      },
+      "name": "24км",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.46159,
+          "lat": 55.57778,
+          "radius": 26.48361532327359,
+          "prior": 31.824630487058542,
+          "post": 31.824630487058542,
+          "bearing": 42.94616181214366
+        }
+      },
+      "texts": [
+        {
+          "text": "24 км",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Сосенки",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "24km.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "sosenki.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "stop": {
+        "nextstop": 39,
+        "route": "backward"
+      },
+      "name": "Сосенки",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.44225,
+          "lat": 55.56003,
+          "radius": 29.005761372838702,
+          "prior": 32.26971508404063,
+          "post": 32.26971508404063,
+          "bearing": 24.99851209960599
+        }
+      },
+      "texts": [
+        {
+          "text": "Сосенки",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Рактики",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "sosenki.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "rakitki.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "stop": {
+        "nextstop": 40,
+        "route": "backward"
+      },
+      "name": "Ракитки",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.39575,
+          "lat": 55.5382,
+          "radius": 25.44508459698208,
+          "prior": 30.192653631457596,
+          "post": 30.192653631457596,
+          "bearing": 48.715049219745055
+        }
+      },
+      "texts": [
+        {
+          "text": "Рактики",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка 36км",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "rakitki.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "36km.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "stop": {
+        "nextstop": 41,
+        "route": "backward"
+      },
+      "name": "36км",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.33734,
+          "lat": 55.50409,
+          "radius": 27.077061452583028,
+          "prior": 31.08282282542174,
+          "post": 31.08282282542174,
+          "bearing": 50.63801168894551
+        }
+      },
+      "texts": [
+        {
+          "text": "36км",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Школа",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "36km.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "shkola.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "stop": {
+        "nextstop": 42,
+        "route": "backward"
+      },
+      "name": "Школа",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.33267,
+          "lat": 55.50075,
+          "radius": 27.67050758189247,
+          "prior": 32.26971508404062,
+          "post": 32.26971508404062,
+          "bearing": 24.99851209960599
+        }
+      },
+      "texts": [
+        {
+          "text": "Школа",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Ватутинки 2",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "shkola.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "vatutinki2.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "stop": {
+        "nextstop": 43,
+        "route": "backward"
+      },
+      "name": "Ватутинки 2",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.32666,
+          "lat": 55.49149,
+          "radius": 26.631976855600946,
+          "prior": 28.70903830818399,
+          "post": 28.70903830818399,
+          "bearing": 21.793574650938552
+        }
+      },
+      "texts": [
+        {
+          "text": "Ватутинки 2",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка ИЗМИРАН",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "vatutinki2.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Izmiran.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "stop": {
+        "nextstop": 44,
+        "route": "backward"
+      },
+      "name": "Измиран",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.31426,
+          "lat": 55.47563,
+          "radius": 26.186892258618865,
+          "prior": 30.4893766961123,
+          "post": 30.4893766961123,
+          "bearing": 40.0
+        }
+      },
+      "texts": [
+        {
+          "text": "Измиран",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка улица центральная",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Izmiran.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "centralnaya.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "stop": {
+        "nextstop": 45,
+        "route": "backward"
+      },
+      "name": "Улица центральная",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30707,
+          "lat": 55.47431,
+          "radius": 26.038530726291505,
+          "prior": 30.044292099130235,
+          "post": 30.044292099130235,
+          "bearing": 43.58714930187716
+        }
+      },
+      "texts": [
+        {
+          "text": "Улица Центральная",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Поликлиника",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "centralnaya.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "poliklinika.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "stop": {
+        "nextstop": 46,
+        "route": "backward"
+      },
+      "name": "Поликлиника",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30167,
+          "lat": 55.47072,
+          "prior": 27.96723064654719,
+          "post": 27.96723064654719,
+          "bearing": 40.3822118532097
+        }
+      },
+      "texts": [
+        {
+          "text": "Поликлиника",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Сиреневый бульвар",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "poliklinika.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Sireneviy_bulvar.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "stop": {
+        "nextstop": 47,
+        "route": "backward"
+      },
+      "name": "Сиреневый бульвар",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29825,
+          "lat": 55.46849,
+          "radius": 25.890169193964145,
+          "prior": 29.895930566802875,
+          "post": 29.895930566802875,
+          "bearing": 42.94616181214366
+        }
+      },
+      "texts": [
+        {
+          "text": "Сиреневый бульвар",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Троицкая роща",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Sireneviy_bulvar.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "troitskaya_rowa.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "stop": {
+        "nextstop": 48,
+        "route": "backward"
+      },
+      "name": "Троицкая роща",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.2947,
+          "lat": 55.46611,
+          "radius": 25.59344612930944,
+          "prior": 27.67050758189247,
+          "post": 27.67050758189247,
+          "bearing": 44.869124281344085
+        }
+      },
+      "texts": [
+        {
+          "text": "Троицкая роща",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Троицкий храм",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "troitskaya_rowa.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "troitskiy_hram.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "stop": {
+        "nextstop": 49,
+        "route": "backward"
+      },
+      "name": "Троицкий храм",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29211,
+          "lat": 55.46738,
+          "radius": 24.258192338363198,
+          "prior": 27.52214604956511,
+          "post": 27.52214604956511,
+          "bearing": 171.78464724857463
+        }
+      },
+      "texts": [
+        {
+          "text": "Троицкий храм",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка солнечная улица",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "troitskiy_hram.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Ul_Solnechnaya.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "stop": {
+        "nextstop": 50,
+        "route": "backward"
+      },
+      "name": "Солнечная улица",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29135,
+          "lat": 55.46946,
+          "radius": 25.44508459698208,
+          "prior": 29.599207502148154,
+          "post": 29.599207502148154,
+          "bearing": 168.70909761816904
+        }
+      },
+      "texts": [
+        {
+          "text": "Солнечная улица",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка октябрьский проспект",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Ul_Solnechnaya.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Oktabrskiy_prospekt.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "stop": {
+        "nextstop": 51,
+        "route": "backward"
+      },
+      "name": "Октябрьский проспект",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29155,
+          "lat": 55.47158,
+          "radius": 24.85163846767264,
+          "prior": 30.044292099130235,
+          "post": 30.044292099130235,
+          "bearing": 216.0127840401852
+        }
+      },
+      "texts": [
+        {
+          "text": "Октябрьский проспект",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка детская поликлиника",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Oktabrskiy_prospekt.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Dets_polik.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "stop": {
+        "nextstop": 52,
+        "route": "backward"
+      },
+      "name": "Детская поликлиника",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29553,
+          "lat": 55.47473,
+          "prior": 29.747569034475514,
+          "post": 29.747569034475514,
+          "bearing": 210.2438966325838
+        }
+      },
+      "texts": [
+        {
+          "text": "Детская поликлиника",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка рынок",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Dets_polik.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Rinok.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "stop": {
+        "nextstop": 53,
+        "route": "backward"
+      },
+      "name": "Рынок",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.29734,
+          "lat": 55.47626,
+          "radius": 25.29672306465472,
+          "prior": 29.747569034475514,
+          "post": 29.747569034475514,
+          "bearing": 215.37179655045168
+        }
+      },
+      "texts": [
+        {
+          "text": "рынок",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Микрорайон Д",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Rinok.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Mkrn_D.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "stop": {
+        "nextstop": 54,
+        "route": "backward"
+      },
+      "name": "Микрорайон Д",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30182,
+          "lat": 55.48067,
+          "radius": 24.70327693534528,
+          "prior": 29.895930566802875,
+          "post": 29.895930566802875,
+          "bearing": 199.34710930711447
+        }
+      },
+      "texts": [
+        {
+          "text": "Микрорайон Д",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Дом быта",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Mkrn_D.wav",
+          "gps": "post"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Dom_byta.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "stop": {
+        "nextstop": 55,
+        "route": "backward"
+      },
+      "name": "Дом быта",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30437,
+          "lat": 55.48352,
+          "radius": 24.258192338363198,
+          "prior": 29.450845969820794,
+          "post": 29.450845969820794,
+          "bearing": 223.704633916987
+        }
+      },
+      "texts": [
+        {
+          "text": "Дом быта",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Следующая остановка Торговый центр",
+          "delay": 15,
+          "gps": "post"
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Dom_byta.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "next.wav",
+          "gps": "post"
+        },
+        {
+          "file": "Torg_centr.wav",
+          "gps": "post"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "stop": {
+        "nextstop": 0,
+        "route": "backward"
+      },
+      "name": "Торговый центр",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "gps": {
+          "lon": 37.30437,
+          "lat": 55.48352,
+          "prior": 29.86811277949147
+        }
+      },
+      "texts": [
+        {
+          "text": "Торговый центр, конечная, просьба освободить салон автобуса",
+          "delay": 10,
+          "gps": "prior"
+        },
+        {
+          "text": "Конечная",
+          "delay": 15
+        }
+      ],
+      "audio": [
+        {
+          "file": "Ostanovka.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "Torg_centr.wav",
+          "gps": "prior"
+        },
+        {
+          "file": "konechnaya.wav"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Реклама1",
+      "mode": {
+        "priority": 9
+      },
+      "trigger": {
+        "external": {
+          "enable": "off"
+        },
+        "gps": {
+          "lon": 37.30426028155893,
+          "lat": 55.472363772068285,
+          "radius": 31.972992019385902,
+          "bearing": 42.30517432241018
+        }
+      },
+      "audio": [
+        {
+          "file": "rekl2.wav",
+          "route": "forward"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Дополнительные экраны",
+      "mode": {
+        "priority": 5,
+        "rule": "begin"
+      },
+      "trigger": {
+        "external": {
+          "enable": "off"
+        },
+        "changedir": "on"
+      },
+      "texts": [
+        {
+          "id": [
+            3,
+            4
+          ],
+          "text": "398",
+          "delay": 15
+        },
+        {
+          "id": [
+            2
+          ],
+          "text": "398 Теплый стан",
+          "delay": 15,
+          "route": "forward"
+        },
+        {
+          "id": [
+            2
+          ],
+          "text": "398 Торговый центр",
+          "delay": 15,
+          "route": "backward"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Тревога",
+      "mode": {
+        "priority": 20,
+        "rule": "begin"
+      },
+      "trigger": {
+        "external": {
+          "menu": "on"
+        }
+      },
+      "mqtt": [
+        {
+          "topic": "utils/alert",
+          "payload": {
+            "text": "Тревога!"
+          }
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Стоп",
+      "mode": {
+        "priority": 49
+      },
+      "trigger": {},
+      "texts": [
+        {
+          "id": [
+            1,
+            2
+          ],
+          "text": "Все на выход",
+          "delay": 15
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Начало1",
+      "mode": {},
+      "trigger": {
+        "external": {
+          "enable": "off"
+        },
+        "gps": {
+          "lon": 37.305912522317776,
+          "lat": 55.48533032249222,
+          "radius": 29.895930566802875,
+          "bearing": 166.40689909654688
+        }
+      }
+    },
+    {
+      "id": 61,
+      "name": "Видео",
+      "mode": {
+        "priority": 10
+      },
+      "trigger": {
+        "external": {
+          "menu": "on"
+        }
+      },
+      "video": [
+        {
+          "file": "waterdrop.mp4"
+        },
+        {
+          "file": "200307_Coronavirus_on_green_01.mp4"
+        }
+      ]
+    }
+  ]
+}

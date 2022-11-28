@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <usb-device vendor-id="1155" product-id="22336" class="2" subclass="2" protocol="0" manufacturer-name="STMicroelectronics" product-name="STM32 Virtual ComPort" serial-number="20803473564E" />
+</resources>

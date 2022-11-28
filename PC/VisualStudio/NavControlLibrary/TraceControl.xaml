@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="NavControlLibrary.TraceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NavControlLibrary"
+             xmlns:global="clr-namespace:NavControlLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <global:BoolVisibilityConverter x:Key="BoolVisibilityConverter"></global:BoolVisibilityConverter>
+        <global:InvBoolVisibilityConverter x:Key="InvBoolVisibilityConverter"></global:InvBoolVisibilityConverter>
+
+        <DataTemplate x:Key="ItemTemplate">
+            <StackPanel Orientation="Horizontal" ToolTip="{Binding}">
+                <Image Source="pic/1492030504_56.png" Width="16" Height="16" HorizontalAlignment="Center" Visibility="{Binding IsTx,Converter={StaticResource BoolVisibilityConverter}}"></Image>
+                <Image Source="pic/1492030523_system-error-alt-02.png" Width="16" Height="16" HorizontalAlignment="Center" Visibility="{Binding IsError,Converter={StaticResource BoolVisibilityConverter}}"></Image>
+                <Image Source="pic/1492030616_arrow-right-alt.png" Width="16" Height="16" HorizontalAlignment="Center" Visibility="{Binding IsRx,Converter={StaticResource BoolVisibilityConverter}}" ></Image>
+                <TextBlock Text="{Binding DateMessage}" HorizontalAlignment="Center" Margin="5,0,0,0" Visibility="{Binding IsChecked,Converter={StaticResource BoolVisibilityConverter}, ElementName=time, Mode=OneWay}" FontWeight="Bold" FontStyle="Normal" ></TextBlock>
+                <TextBlock Text="{Binding MainMessage}" HorizontalAlignment="Center" Margin="5,0,0,0" TextTrimming="WordEllipsis"></TextBlock>
+                <TextBlock Text="{Binding DataMessage}" Margin="10,0,0,0" HorizontalAlignment="Center" FontStyle="Italic" Visibility="{Binding IsChecked, Converter={StaticResource BoolVisibilityConverter}, ElementName=dt}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SelectedTemplate">
+            <StackPanel Orientation="Vertical" ToolTip="{Binding}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pic/1492030504_56.png" Width="16" Height="16" HorizontalAlignment="Center" Visibility="{Binding IsTx,Converter={StaticResource BoolVisibilityConverter}}"></Image>
+                    <Image Source="pic/1492030523_system-error-alt-02.png" Width="16" Height="16" HorizontalAlignment="Center" Visibility="{Binding IsError,Converter={StaticResource BoolVisibilityConverter}}"></Image>
+                    <Image Source="pic/1492030616_arrow-right-alt.png" Width="16" Height="16" HorizontalAlignment="Center" Visibility="{Binding IsRx,Converter={StaticResource BoolVisibilityConverter}}" ></Image>
+                    <TextBlock FontSize="16" Text="{Binding DateMessage}" HorizontalAlignment="Center" Margin="5,0,0,0" Visibility="{Binding IsChecked,Converter={StaticResource BoolVisibilityConverter}, ElementName=time, Mode=OneWay}" FontWeight="Bold" FontStyle="Normal" ></TextBlock>
+                </StackPanel>
+                <TextBox Text="{Binding Path=Expand, Mode=OneWay}" HorizontalAlignment="Center" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="ContainerStyle">
+            <Setter Property="ContentTemplate" Value="{StaticResource ItemTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource SelectedTemplate}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="logs" Margin="5"  ItemsSource="{Binding Logs}" ItemContainerStyle="{StaticResource ContainerStyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+        </ListBox>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="time" Content="Время" IsChecked="{Binding IsTime}" Margin="5,0,2,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"></CheckBox>
+            <Button Content="Очистить" Grid.Column="1" Margin="5,0" Click="Button_Click" Padding="2,2,2,2"></Button>
+            <TextBlock Text="{Binding FileName}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Column="3" Margin="5,0" Padding="2,2,2,2" Visibility="{Binding IsFileLog, Converter={StaticResource BoolVisibilityConverter}}" Click="Button_Click_2">
+                <TextBlock>X</TextBlock>
+            </Button>
+            <Button Grid.Column="3" Margin="5,0" Padding="2,2,2,2" Visibility="{Binding IsFileLog, Converter={StaticResource InvBoolVisibilityConverter}}" Click="Button_Click_1">
+                <TextBlock>...</TextBlock>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

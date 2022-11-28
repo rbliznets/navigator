@@ -1,0 +1,15 @@
+{
+    "mqtt": {
+        "server": "romasty.duckdns.org",
+        "port": 8883,
+        "user": "glorient",
+        "password": "raQNI6dpZZrd44xoXFPz",
+        "timeout": 3000,
+        "ssl": true
+    },
+    "egts": {
+        "server": "95.163.85.129",
+        "port": 7005,
+        "timeout": 3000
+    }
+}

@@ -1,0 +1,5 @@
+rootProject.name = "Navigator"
+include ':ServiceTests'
+include ':Granit-BK-N'
+include ':bkn'
+include ':GR008'

@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="NavControlLibrary.Map.MapArrow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NavControlLibrary.Map"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="30">
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform x:Name="Scale" CenterX="15" CenterY="15"/>
+            <SkewTransform/>
+            <RotateTransform x:Name="Bearing" CenterX="15" CenterY="15"/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <Grid>
+        <Line Fill="Navy" Stroke="Red" X1="15" Y1="0" X2="15" Y2="30" StrokeThickness="1" />
+        <Line Fill="Navy" Stroke="Red" X1="7" Y1="15" X2="15" Y2="0" StrokeThickness="1" />
+        <Line Fill="Navy" Stroke="Red" X1="23" Y1="15" X2="15" Y2="0" StrokeThickness="1" />
+    </Grid>
+</UserControl>

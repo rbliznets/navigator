@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/guideline"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#FF0000FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintFront"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBarFront"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/gl_view"
+            app:layout_constraintEnd_toEndOf="@+id/gl_view"
+            app:layout_constraintStart_toStartOf="@+id/constraintFront"
+            app:layout_constraintTop_toTopOf="@+id/gl_view" />
+
+        <TextView
+            android:id="@+id/textViewFront"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Фронтальная камера"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.opengl.GLSurfaceView
+            android:id="@+id/gl_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFront" />
+
+        <!--        <FrameLayout-->
+        <!--            android:id="@+id/textureViewFront"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/linearSettings"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/textViewFront"-->
+        <!--            app:layout_constraintVertical_bias="0.0" />-->
+
+        <Button
+            android:id="@+id/buttonRecFront"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_square"
+            android:padding="4dp"
+            android:text="Начать запись Front"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/linearSettings"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgRecFront"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/gl_view"
+            app:layout_constraintTop_toTopOf="@+id/gl_view"
+            app:srcCompat="@drawable/ic_record" />
+
+        <LinearLayout
+            android:id="@+id/linearSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#88000000"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/gl_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Параметры:"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="Время, мин"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/etTimeSize"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1"
+                android:textColor="@color/white"
+                tools:text="10" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/buttonPlayFront"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/button_square"
+            android:src="@drawable/ic_play"
+            app:layout_constraintBottom_toTopOf="@+id/linearSettings"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintBack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBarBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/gl_view2"
+            app:layout_constraintEnd_toEndOf="@+id/gl_view2"
+            app:layout_constraintStart_toStartOf="@+id/constraintBack"
+            app:layout_constraintTop_toTopOf="@+id/gl_view2" />
+
+        <TextView
+            android:id="@+id/textViewBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Задняя камера"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.opengl.GLSurfaceView
+            android:id="@+id/gl_view2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewBack" />
+
+        <!--        <FrameLayout-->
+        <!--            android:id="@+id/textureViewBack"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/linearSettingsBack"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/textViewBack" />-->
+
+        <!--        <TextureView-->
+        <!--            android:id="@+id/textureViewBack"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/linearSettingsBack"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/textViewBack" />-->
+
+        <ImageView
+            android:id="@+id/imgRecBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/gl_view2"
+            app:layout_constraintTop_toTopOf="@+id/gl_view2"
+            app:srcCompat="@drawable/ic_record" />
+
+        <LinearLayout
+            android:id="@+id/linearSettingsBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#88000000"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/gl_view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Параметры:"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="Время, мин"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/etTimeSizeBack"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1"
+                android:textColor="@color/white"
+                tools:text="10" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonRecBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_square"
+            android:padding="4dp"
+            android:text="Начать запись Back"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/linearSettingsBack"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/buttonPlayBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/button_square"
+            android:src="@drawable/ic_play"
+            app:layout_constraintBottom_toTopOf="@+id/linearSettingsBack"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

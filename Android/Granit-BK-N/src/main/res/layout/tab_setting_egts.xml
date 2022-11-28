@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setting_egts"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/dialogSettingServerEgts"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_setting_server"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editDialogSettingServerEgts"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editDialogSettingServerEgts"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_setting_server_tint"
+        app:layout_constraintStart_toEndOf="@+id/dialogSettingServerEgts"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dialogSettingPortEgts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/dialog_setting_port"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editDialogSettingPortEgts"
+        app:layout_constraintEnd_toStartOf="@+id/editDialogSettingPortEgts"
+        app:layout_constraintStart_toEndOf="@+id/editDialogSettingServerEgts" />
+
+    <EditText
+        android:id="@+id/editDialogSettingPortEgts"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:hint="@string/dialog_setting_port_tint"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/dialogSettingPortEgts"
+        app:layout_constraintTop_toTopOf="@+id/editDialogSettingServerEgts" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/dialogSettingUserEgts"-->
+    <!--        android:layout_width="80dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/dialog_setting_user"-->
+    <!--        app:layout_constraintBaseline_toBaselineOf="@+id/editDialogSettingUserEgts"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/editDialogSettingUserEgts"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:hint="@string/dialog_setting_user_tint"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/dialogSettingUserEgts"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/editDialogSettingServerEgts" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/dialogSettingPasswordEgts"-->
+    <!--        android:layout_width="80dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/dialog_setting_password"-->
+    <!--        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutEgts"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/dialogSettingUserEgts" />-->
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/textInputLayoutEgts"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/dialogSettingPasswordEgts"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/editDialogSettingUserEgts"-->
+    <!--        app:passwordToggleEnabled="true">-->
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/editDialogSettingPasswordEgts"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:hint="@string/dialog_setting_password_tint"-->
+    <!--            android:inputType="textPassword" />-->
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/dialogSettingTransportIdEgts"-->
+    <!--        android:layout_width="80dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/dialog_setting_transport_id"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/editDialogSettingTransportIdEgts"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/editDialogSettingTransportIdEgts" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/editDialogSettingTransportIdEgts"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:enabled="false"-->
+    <!--        android:inputType="number"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/dialogSettingTransportIdEgts"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/editDialogSettingServerEgts" />-->
+
+    <TextView
+        android:id="@+id/dialogSettingTimeoutEgts"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_setting_timeout"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editDialogSettingTimeoutEgts"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editDialogSettingTimeoutEgts"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/dialogSettingTimeoutEgts"
+        app:layout_constraintTop_toBottomOf="@+id/editDialogSettingServerEgts" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
